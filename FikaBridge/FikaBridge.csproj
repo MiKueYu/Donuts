@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props"
-          Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')"/>
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -10,9 +9,10 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Donuts.FikaBridge</RootNamespace>
     <AssemblyName>Donuts-FikaBridge</AssemblyName>
-    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <LangVersion>default</LangVersion>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -41,48 +41,48 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Assembly-CSharp">
-      <HintPath>E:\SPT-3.10\EscapeFromTarkov_Data\Managed\Assembly-CSharp.dll</HintPath>
+      <HintPath>..\References\Assembly-CSharp.dll</HintPath>
     </Reference>
     <Reference Include="Comfort">
-      <HintPath>E:\SPT-3.10\EscapeFromTarkov_Data\Managed\Comfort.dll</HintPath>
+      <HintPath>..\References\Comfort.dll</HintPath>
     </Reference>
     <Reference Include="Fika.Core">
-      <HintPath>E:\SPT-3.10\BepInEx\plugins\Fika.Core.dll</HintPath>
+      <HintPath>..\References\Fika.Core.dll</HintPath>
     </Reference>
-    <Reference Include="System"/>
-    <Reference Include="System.Core"/>
-    <Reference Include="System.Data"/>
-    <Reference Include="System.Xml"/>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
     <Reference Include="UniTask">
-      <HintPath>E:\SPT-3.10\BepInEx\plugins\UnityToolkit\UniTask.dll</HintPath>
+      <HintPath>..\References\UniTask.dll</HintPath>
     </Reference>
     <Reference Include="UniTask.Linq">
-      <HintPath>E:\SPT-3.10\BepInEx\plugins\UnityToolkit\UniTask.Linq.dll</HintPath>
+      <HintPath>..\References\UniTask.Linq.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Collections">
-      <HintPath>E:\SPT-3.10\BepInEx\plugins\UnityToolkit\Unity.Collections.dll</HintPath>
+      <HintPath>..\References\Unity.Collections.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Mathematics">
-      <HintPath>E:\SPT-3.10\EscapeFromTarkov_Data\Managed\Unity.Mathematics.dll</HintPath>
+      <HintPath>..\References\Unity.Mathematics.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine">
-      <HintPath>E:\SPT-3.10\EscapeFromTarkov_Data\Managed\UnityEngine.dll</HintPath>
+      <HintPath>..\References\UnityEngine.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.CoreModule">
-      <HintPath>E:\SPT-3.10\EscapeFromTarkov_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+      <HintPath>..\References\UnityEngine.CoreModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.PhysicsModule">
-      <HintPath>E:\SPT-3.10\EscapeFromTarkov_Data\Managed\UnityEngine.PhysicsModule.dll</HintPath>
+      <HintPath>..\References\UnityEngine.PhysicsModule.dll</HintPath>
     </Reference>
     <Reference Include="ZString">
-      <HintPath>E:\SPT-3.10\BepInEx\plugins\UnityToolkit\ZString.dll</HintPath>
+      <HintPath>..\References\ZString.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FikaBridge.cs" />
     <Compile Include="LineOfSightController.cs" />
     <Compile Include="PlayerLineOfSightChecker.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs"/>
+    <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Donuts.csproj">
@@ -90,7 +90,7 @@
       <Name>Donuts</Name>
     </ProjectReference>
   </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets"/>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
@@ -98,5 +98,4 @@
   <Target Name="AfterBuild">
   </Target>
   -->
-
 </Project>
