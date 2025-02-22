@@ -15,7 +15,7 @@ public class DonutsSettingsPage : TabContainerPage
 	
 	private Vector2 _scrollPosition = Vector2.zero;
 	
-	public override string Name => "Donuts Configuration";
+	public override string Name => "Donuts 配置";
 
 	public DonutsSettingsPage() : base(PluginGUIComponent.ButtonStyle, PluginGUIComponent.ButtonActiveStyle)
 	{
@@ -29,7 +29,7 @@ public class DonutsSettingsPage : TabContainerPage
 	public override void Draw()
 	{
 		// Manually draw the window title centered at the top
-		Rect titleRect = new(0, 0, WindowRect.width, 20);
+		Rect titleRect = new(0, 0, WindowRect.width, 30);
 		GUI.Label(titleRect, Name, new GUIStyle(GUI.skin.label)
 		{
 			alignment = TextAnchor.MiddleCenter,
@@ -70,10 +70,10 @@ public class DonutsSettingsPage : TabContainerPage
 			alignment = TextAnchor.MiddleCenter
 		};
 
-		if (GUILayout.Button("Save All Changes", greenButtonStyle, GUILayout.Width(250), GUILayout.Height(50)))
+		if (GUILayout.Button("保存所有更改", greenButtonStyle, GUILayout.Width(250), GUILayout.Height(50)))
 		{
 			DonutsConfiguration.ExportConfig();
-			DonutsHelper.NotifyModSettingsStatus("All Donuts settings have been saved.");
+			DonutsHelper.NotifyModSettingsStatus("所有 Donuts 设置已保存.");
 		}
 
 		GUILayout.Space(RESIZE_HANDLE_SIZE);

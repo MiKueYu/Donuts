@@ -52,8 +52,8 @@ public class DonutsPlugin : BaseUnityPlugin
 		
 		DonutsConfiguration.ImportConfig(DirectoryPath);
 		
-		toggleGUIKey = Config.Bind("Config Settings", "Key To Enable/Disable Config Interface",
-			new KeyboardShortcut(KeyCode.F9), "Key to Enable/Disable Donuts Configuration Menu");
+		toggleGUIKey = Config.Bind("配置设置", "启用/禁用配置界面的按键",
+			new KeyboardShortcut(KeyCode.F9), "启用/禁用 Donuts 配置菜单的按键");
 		
 		ModulePatchManager = new ModulePatchManager(CurrentAssembly);
 		ModulePatchManager.EnableAllPatches();
@@ -115,14 +115,14 @@ public class DonutsPlugin : BaseUnityPlugin
 		await LoadDonutsScenarios();
 		
 		// Dynamically initialize the scenario settings
-		DefaultPluginVars.pmcScenarioSelection = new Setting<string>("PMC Raid Spawn Preset Selection",
-			"Select a preset to use when spawning as PMC",
+		DefaultPluginVars.pmcScenarioSelection = new Setting<string>("PMC 战局生成预设选择",
+            "选择一个预设,用于以PMC身份生成时使用.",
 			DefaultPluginVars.PmcScenarioSelectionValue ?? "live-like",
 			"live-like",
 			options: DefaultPluginVars.pmcScenarioCombinedArray);
 		
-		DefaultPluginVars.scavScenarioSelection = new Setting<string>("SCAV Raid Spawn Preset Selection",
-			"Select a preset to use when spawning as SCAV",
+		DefaultPluginVars.scavScenarioSelection = new Setting<string>("SCAV 战局生成预设选择",
+            "选择一个预设,用于以SCAV身份生成时使用",
 			DefaultPluginVars.ScavScenarioSelectionValue ?? "live-like",
 			"live-like",
 			options: DefaultPluginVars.scavScenarioCombinedArray);
@@ -145,8 +145,8 @@ public class DonutsPlugin : BaseUnityPlugin
 		
 		if (DefaultPluginVars.debugLogging.Value)
 		{
-			Logger.LogWarning($"Loaded PMC Scenarios: {string.Join(", ", DefaultPluginVars.pmcScenarioCombinedArray)}");
-			Logger.LogWarning($"Loaded Scav Scenarios: {string.Join(", ", DefaultPluginVars.scavScenarioCombinedArray)}");
+			Logger.LogWarning($"已加载的 PMC 场景: {string.Join(", ", DefaultPluginVars.pmcScenarioCombinedArray)}");
+			Logger.LogWarning($"已加载的 Scav 场景: {string.Join(", ", DefaultPluginVars.scavScenarioCombinedArray)}");
 		}
 	}
 	
@@ -154,7 +154,7 @@ public class DonutsPlugin : BaseUnityPlugin
 	{
 		if (!File.Exists(filePath))
 		{
-			Logger.LogError($"File not found: {filePath}");
+			Logger.LogError($"文件未找到: {filePath}");
 			return _emptyScenarioList;
 		}
 		
@@ -163,21 +163,21 @@ public class DonutsPlugin : BaseUnityPlugin
 		
 		if (folders == null || folders.Count == 0)
 		{
-			Logger.LogError($"No Donuts Folders found in Scenario Config file at: {filePath}");
+			Logger.LogError($"在以下位置的场景配置文件中未找到 Donuts 文件夹: {filePath}");
 			return _emptyScenarioList;
 		}
 		
-		Logger.LogWarning($"Loaded {folders.Count.ToString()} Donuts Scenario Folders");
+		Logger.LogWarning($"已加载 {folders.Count.ToString()} 个 Donuts 场景文件夹");
 		return folders;
 	}
 	
 	private static void PopulateScenarioValues()
 	{
 		DefaultPluginVars.pmcScenarioCombinedArray = GenerateScenarioValues(DefaultPluginVars.PmcScenarios, DefaultPluginVars.PmcRandomScenarios);
-		Logger.LogWarning($"Loaded {DefaultPluginVars.pmcScenarioCombinedArray.Length.ToString()} PMC Scenarios and Finished Generating");
+		Logger.LogWarning($"已加载 {DefaultPluginVars.pmcScenarioCombinedArray.Length.ToString()} 个 PMC 场景并完成生成");
 		
 		DefaultPluginVars.scavScenarioCombinedArray = GenerateScenarioValues(DefaultPluginVars.ScavScenarios, DefaultPluginVars.ScavRandomScenarios);
-		Logger.LogWarning($"Loaded {DefaultPluginVars.scavScenarioCombinedArray.Length.ToString()} SCAV Scenarios and Finished Generating");
+		Logger.LogWarning($"已加载 {DefaultPluginVars.scavScenarioCombinedArray.Length.ToString()} 个 SCAV 场景并完成生成");
 	}
 	
 	private static string[] GenerateScenarioValues([NotNull] List<Folder> scenarios, [NotNull] List<Folder> randomScenarios)

@@ -8,7 +8,7 @@ namespace Donuts.PluginGUI.Pages;
 
 internal class SpawnSettingsPage : ISettingsPage
 {
-    public string Name => "Spawn Settings";
+    public string Name => "生成设置";
 
     public void Draw()
     {
@@ -16,7 +16,7 @@ internal class SpawnSettingsPage : ISettingsPage
         GUILayout.BeginHorizontal();
         GUILayout.BeginVertical();
 
-        Accordion("Global Min Distance To Player Settings", "Click to expand/collapse", () =>
+        Accordion("全局与玩家最小距离设置", "点击展开/折叠", () =>
         {
             // Toggle for globalMinSpawnDistanceFromPlayerBool
             globalMinSpawnDistanceFromPlayerBool.Value = Toggle(globalMinSpawnDistanceFromPlayerBool.Name,
@@ -47,7 +47,7 @@ internal class SpawnSettingsPage : ISettingsPage
             }
         });
 
-        Accordion("Global Min Distance To Other Bots Settings", "Click to expand/collapse", () =>
+        Accordion(" 全局与其他机器人最小距离设置", "点击展开/折叠", () =>
         {
             // Toggle for globalMinSpawnDistanceFromOtherBotsBool
             globalMinSpawnDistanceFromOtherBotsBool.Value = Toggle(

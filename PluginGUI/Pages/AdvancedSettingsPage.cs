@@ -6,7 +6,7 @@ namespace Donuts.PluginGUI.Pages;
 
 internal class AdvancedSettingsPage : ISettingsPage
 {
-    public string Name => "Advanced Settings";
+    public string Name => "高级设置";
 
     public void Draw()
     {
@@ -40,7 +40,7 @@ internal class AdvancedSettingsPage : ISettingsPage
         GUILayout.Space(150);
 
         // Reset to Default Values button
-        if (GUILayout.Button("Reset to Default Values", PluginGUIComponent.CloseButtonStyle, GUILayout.Width(250),
+        if (GUILayout.Button("重置为默认值", PluginGUIComponent.CloseButtonStyle, GUILayout.Width(250),
 	        GUILayout.Height(50)))
         {
 	        ResetToDefault();
@@ -55,7 +55,7 @@ internal class AdvancedSettingsPage : ISettingsPage
 	    // TODO: Needs a refactor
 	    PluginGUIComponent.ResetSettingsToDefaults();
 	    DonutsHelper.NotifyModSettingsStatus(
-		    "All Donuts settings have been reset to default values, but they still need to be saved.");
+            "所有 Donuts 设置已重置为默认值,但仍需要保存.");
 	    PluginGUIComponent.RestartPluginGUI();
     }
 }

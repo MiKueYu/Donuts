@@ -5,7 +5,7 @@ namespace Donuts.PluginGUI.Pages;
 
 internal class DebuggingSettingsPage : ISettingsPage
 {
-    public string Name => "Debugging";
+    public string Name => "调试";
     
     public void Draw()
     {

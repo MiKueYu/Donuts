@@ -13,7 +13,7 @@ internal class MainSettingsBotAttributesPage : ISettingsPage
 	private int _pmcFactionIndex;
 	private int _forceAllBotTypeIndex;
 	
-	public string Name => "Bot Attributes";
+	public string Name => "机器人属性";
 
 	public MainSettingsBotAttributesPage()
 	{

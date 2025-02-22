@@ -8,7 +8,7 @@ internal class SpawnSetupTabSettingsPage : ISettingsPage
 {
 	private int _wildSpawnsIndex;
 
-	public string Name => "Spawn Setup";
+	public string Name => "生成设置";
 
 	public SpawnSetupTabSettingsPage()
 	{

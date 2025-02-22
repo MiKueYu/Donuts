@@ -9,7 +9,7 @@ internal class MainSettingsSpawnFrequencyPage : ISettingsPage
 	private int _pmcGroupChanceIndex;
 	private int _scavGroupChanceIndex;
 	
-	public string Name => "Spawn Frequency";
+	public string Name => "生成频率";
 
 	public MainSettingsSpawnFrequencyPage()
 	{

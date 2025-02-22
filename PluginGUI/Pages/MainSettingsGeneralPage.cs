@@ -14,7 +14,7 @@ internal class MainSettingsGeneralPage : ISettingsPage
 	// Flag to check if scenarios are loaded
 	private bool _scenariosLoaded;
 	
-	public string Name => "General";
+	public string Name => "常规设置";
 	
 	public MainSettingsGeneralPage()
 	{
@@ -63,8 +63,8 @@ internal class MainSettingsGeneralPage : ISettingsPage
 		}
 		else
 		{
-			GUILayout.Label("Loading PMC scenarios...");
-			GUILayout.Label("Loading SCAV scenarios...");
+			GUILayout.Label("正在加载PMC场景...");
+			GUILayout.Label("正在加载 Scav 场景...");
 		}
 		
 		GUILayout.EndVertical();
@@ -80,7 +80,7 @@ internal class MainSettingsGeneralPage : ISettingsPage
 			{
 				if (debugLogging.Value)
 				{
-					DonutsPlugin.Logger.LogWarning("Warning: pmcScenarioSelectionIndex not found, defaulting to 0");
+					DonutsPlugin.Logger.LogWarning("警告:未找到 PMC 场景选择索引,默认为 0.");
 				}
 				
 				_pmcScenarioSelectionIndex = 0;
@@ -95,7 +95,7 @@ internal class MainSettingsGeneralPage : ISettingsPage
 			{
 				if (debugLogging.Value)
 				{
-					DonutsPlugin.Logger.LogWarning("Warning: scavScenarioSelectionIndex not found, defaulting to 0");
+					DonutsPlugin.Logger.LogWarning("警告：未找到 SCAV 场景选择索引,默认为 0.");
 				}
 				
 				_scavScenarioSelectionIndex = 0;

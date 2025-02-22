@@ -199,7 +199,7 @@ internal static class DefaultPluginVars
 
 	private static void InitMainSettings()
 	{
-		PluginEnabled = new Setting<bool>("Donuts On", "Enable/Disable Spawning from Donuts Points",
+		PluginEnabled = new Setting<bool>("Donuts 开启", "启用/禁用从Donuts点生成",
 			true, true);
 
 		PluginEnabled.OnSettingChanged += _ =>
@@ -210,188 +210,188 @@ internal static class DefaultPluginVars
 			}
 		};
 
-		DespawnEnabledPMC = new Setting<bool>("Despawn PMCs",
-			"When enabled, removes furthest PMC bots from player for each new dynamic spawn bot that is over your Donuts bot caps (ScenarioConfig.json).",
+		DespawnEnabledPMC = new Setting<bool>("移除PMC",
+            "启用后,当动态生成的机器人超过您在Donuts机器人上限(ScenarioConfig.json)时,移除离玩家最远的PMC机器人.",
 			true, true);
 
-		DespawnEnabledSCAV = new Setting<bool>("Despawn SCAVs",
-			"When enabled, removes furthest SCAV bots from player for each new dynamic spawn bot that is over your Donuts bot caps (ScenarioConfig.json).",
+		DespawnEnabledSCAV = new Setting<bool>("移除SCAV",
+            "启用后,当动态生成的机器人超过您在Donuts机器人上限(ScenarioConfig.json)时,移除离玩家最远的SCAV机器人.",
 			true, true);
 
-		HardCapEnabled = new Setting<bool>("Bot Hard Cap Option",
-			"When enabled, all bot spawns will be hard capped by your preset caps. In other words, if your bot count is at the total Donuts cap then no more bots will spawn until one dies (vanilla SPT behavior).",
+		HardCapEnabled = new Setting<bool>("机器人硬上限选项",
+            "启用后,所有机器人生成将受到您预设上限的严格限制.换句话说,如果您的机器人数量已达到Donuts上限,则在有机器人死亡之前不会再生成新的机器人(类似于原版SPT行为).",
 			false, false);
 
-		coolDownTimer = new Setting<float>("Cooldown Timer",
-			"Cooldown Timer for after a spawn has successfully spawned a bot the spawn marker's MaxSpawnsBeforeCooldown",
+		coolDownTimer = new Setting<float>("冷却计时器",
+            "成功生成机器人后，生成标记的冷却计时器(MaxSpawnsBeforeCooldown)",
 			300f, 300f, 0f, 1000f);
 
-		pmcGroupChance = new Setting<string>("Donuts PMC Group Chance",
-			"Setting to determine the odds of PMC groups and group size. All odds are configurable, check Advanced Settings above. See mod page for more details.",
+		pmcGroupChance = new Setting<string>("Donuts PMC组生成几率",
+            "用于确定PMC组生成几率及组大小的设置.所有几率均可配置,请查看上方的高级设置.更多详情请参阅模组页面.",
 			"Default", "Default", null, null, _pmcGroupChanceList);
 
-		scavGroupChance = new Setting<string>("Donuts SCAV Group Chance",
-			"Setting to determine the odds of SCAV groups and group size. All odds are configurable, check Advanced Settings above. See mod page for more details. See mod page for more details.",
+		scavGroupChance = new Setting<string>("Donuts SCAV组生成几率",
+            "用于确定SCAV组生成几率及组大小的设置.所有几率均可配置,请查看上方的高级设置.更多详情请参阅模组页面.",
 			"Default", "Default", null, null, _scavGroupChanceList);
 
-		botDifficultiesPMC = new Setting<string>("Donuts PMC Spawn Difficulty",
-			"Difficulty Setting for All PMC Donuts Related Spawns",
+		botDifficultiesPMC = new Setting<string>("Donuts PMC生成难度",
+            "所有PMC Donuts相关生成的难度设置",
 			"Normal", "Normal", null, null, _botDifficultyOptions);
 
-		botDifficultiesSCAV = new Setting<string>("Donuts SCAV Spawn Difficulty",
-			"Difficulty Setting for All SCAV Donuts Related Spawns",
+		botDifficultiesSCAV = new Setting<string>("Donuts SCAV生成难度",
+            "所有SCAV Donuts相关生成的难度设置",
 			"Normal", "Normal", null, null, _botDifficultyOptions);
 
-		botDifficultiesOther = new Setting<string>("Other Bot Type Spawn Difficulty",
-			"Difficulty Setting for all other bot types spawned with Donuts, such as bosses, Rogues, Raiders, etc.",
+		botDifficultiesOther = new Setting<string>("其他机器人类型生成难度",
+            "使用Donuts生成的所有其他机器人类型(如Boss,Rogue,Raider等)的难度设置.",
 			"Normal", "Normal", null, null, _botDifficultyOptions);
 
-		ShowRandomFolderChoice = new Setting<bool>("Show Spawn Preset Selection",
-			"Shows the Spawn Preset Selected on Raid Start in bottom right", true, true);
+		ShowRandomFolderChoice = new Setting<bool>("显示生成预设选择",
+            "在突袭开始时,在右下角显示所选的生成预设", true, true);
 
-		pmcFaction = new Setting<string>("Force PMC Faction",
-			"Force a specific faction for all PMC spawns or use the default specified faction in the Donuts spawn files. Default is a random faction.",
+		pmcFaction = new Setting<string>("强制 PMC 阵营",
+            "强制所有 PMC 生成点使用特定阵营,或使用 Donuts 生成文件中指定的默认阵营.默认为随机阵营.",
 			"Default", "Default", null, null, _pmcFactionList);
 
-		forceAllBotType = new Setting<string>("Force Bot Type for All Spawns",
-			"Force a specific bot type for all spawns - this option converts all defined starting spawns and waves to the specified bot type. Default is Disabled.",
+		forceAllBotType = new Setting<string>("强制所有生成的机器人类型",
+            "为所有生成强制指定机器人类型——此选项将所有定义的初始生成和波次转换为指定的机器人类型.默认情况下为禁用.",
 			"Disabled", "Disabled", null, null, _forceAllBotTypeList);
 
-		useTimeBasedHardStop = new Setting<bool>("Use Time-Based Hard Stop",
-			"If enabled, the hard stop settings will be the time (in seconds) left in raid (configurable below). If disabled, the hard stop settings will be the percentage of time left in raid (configurable below).",
+		useTimeBasedHardStop = new Setting<bool>("使用基于时间的硬停止",
+            "如果启用,硬停止设置将基于突袭剩余时间(以秒为单位,可在下方配置).如果禁用,硬停止设置将基于突袭剩余时间的百分比(可在下方配置).",
 			true, true);
 
-		hardStopOptionPMC = new Setting<bool>("PMC Spawn Hard Stop",
-			"If enabled, all PMC spawns stop completely once there is n time or percentage time left in your raid. This is configurable in either seconds or percentage (see below).",
+		hardStopOptionPMC = new Setting<bool>("PMC生成硬停止",
+            "如果启用,当撤离剩余时间达到指定的时间或百分比时,所有 PMC 的生成点将完全停止.这可以使用秒数或百分比进行配置(见下方).",
 			false, false);
 
-		hardStopPercentPMC = new Setting<int>("PMC Spawn Hard Stop: Percent Left of Raid",
-			"The percentage of time left in your raid that will stop any further PMC spawns (if option is enabled). Default is 50 percent of the full raid time.",
+		hardStopPercentPMC = new Setting<int>("PMC 生成点硬停止:撤离剩余时间百分比",
+            "当撤离剩余时间达到此百分比时,将停止任何进一步的 PMC 生成(如果该选项已启用).默认为完整撤离时间的 50%.",
 			50, 50, 0, 100);
 
-		hardStopTimePMC = new Setting<int>("PMC Spawn Hard Stop: Time Left in Raid",
-			"The time (in seconds) left in your raid that will stop any further PMC spawns (if option is enabled). Default is 300 (5 minutes).",
+		hardStopTimePMC = new Setting<int>("PMC 生成点硬停止:撤离剩余时间",
+            "当撤离剩余时间达到此时间(以秒为单位)时,将停止任何进一步的 PMC 生成(如果该选项已启用).默认为 300 秒(5 分钟).",
 			300, 300);
 
-		hardStopOptionSCAV = new Setting<bool>("SCAV Spawn Hard Stop",
-			"If enabled, all SCAV spawns stop completely once there is n time or percentage time left in your raid. This is configurable in either seconds or percentage (see below).",
+		hardStopOptionSCAV = new Setting<bool>("SCAV 生成点硬停止",
+            "如果启用,当撤离剩余时间达到指定的时间或百分比时,所有 SCAV 的生成点将完全停止.这可以使用秒数或百分比进行配置(见下方).",
 			false, false);
 
-		hardStopTimeSCAV = new Setting<int>("SCAV Spawn Hard Stop: Time Left in Raid",
-			"The time (in seconds) left in your raid that will stop any further SCAV spawns (if option is enabled). Default is 300 (5 minutes).",
+		hardStopTimeSCAV = new Setting<int>("SCAV 生成点硬停止:撤离剩余时间",
+            "当撤离剩余时间达到此时间(以秒为单位)时,将停止任何进一步的 SCAV 生成(如果该选项已启用).默认为 300 秒(5 分钟).",
 			300, 300);
 
-		hardStopPercentSCAV = new Setting<int>("SCAV Spawn Hard Stop: Percent Left of Raid",
-			"The percentage of time left in your raid that will stop any further SCAV spawns (if option is enabled). Default is 10 percent of the full raid time.",
+		hardStopPercentSCAV = new Setting<int>("SCAV 生成点硬停止:撤离剩余时间百分比",
+            "当撤离剩余时间达到此百分比时.将停止任何进一步的 SCAV 生成(如果该选项已启用).默认为完整撤离时间的 10%.",
 			10, 10, 0, 100);
 
-		hotspotBoostPMC = new Setting<bool>("PMC Hot Spot Spawn Boost",
-			"If enabled, all hotspot points have a much higher chance of spawning more PMCs.",
+		hotspotBoostPMC = new Setting<bool>("PMC 热点刷新提升",
+            "如果启用,所有热点区域将有更高的几率刷新更多的 PMC.",
 			false, false);
 
-		hotspotBoostSCAV = new Setting<bool>("SCAV Hot Spot Spawn Boost",
-			"If enabled, all hotspot points have a much higher chance of spawning more SCAVs.",
+		hotspotBoostSCAV = new Setting<bool>("SCAV 热点刷新提升",
+            "如果启用,所有热点区域将有更高的几率刷新更多的 SCAV.",
 			false, false);
 
-		hotspotIgnoreHardCapPMC = new Setting<bool>("PMC Hot Spot Ignore Hard Cap",
-			"If enabled, all hotspot spawn points will ignore the hard cap (if enabled). This applies to any spawn points labeled with 'Hotspot'. I recommended using this option with Despawn + Hardcap + Boost for the best experience with more action in hot spot areas.",
+		hotspotIgnoreHardCapPMC = new Setting<bool>("PMC 热点忽略硬上限",
+            "如果启用,所有热点生成点都将忽略硬上限(如果已启用).这适用于任何标记为'热点'的生成点.我建议将此选项与 Despawn(清除) + 硬上限 + Boost(加速)结合使用,以获得最佳体验,并在热点区域获得更多行动.",
 			false, false);
 
-		hotspotIgnoreHardCapSCAV = new Setting<bool>("SCAV Hot Spot Ignore Hard Cap",
-			"If enabled, all hotspot spawn points will ignore the hard cap (if enabled). This applies to any spawn points labeled with 'Hotspot'. I recommended using this option with Despawn + Hardcap + Boost for the best experience with more action in hot spot areas.",
+		hotspotIgnoreHardCapSCAV = new Setting<bool>("SCAV 热点忽略硬上限",
+            "如果启用,所有热点生成点都将忽略硬上限(如果已启用).这适用于任何标记为'热点'的生成点.我建议将此选项与 Despawn(清除) + 硬上限 + Boost(加速)结合使用,以获得最佳体验,并在热点区域获得更多行动.",
 			false, false);
 
-		pmcFactionRatio = new Setting<int>("PMC Faction Ratio",
-			"USEC/Bear Default Ratio. Default is 50%. Lower value = lower USEC chance, so: 20 would be 20% USEC, 80% Bear, etc.",
+		pmcFactionRatio = new Setting<int>("PMC 阵营比例",
+            "USEC/Bear 默认比例.默认为 50%.数值越低 = USEC 的几率越低,因此:20 表示 20% USEC,80% Bear,以此类推.",
 			50, 50);
 
-		battleStateCoolDown = new Setting<float>("Battlestate Spawn Cooldown",
-			"It will stop spawning bots until you haven't been hit for X amount of seconds\nas you are still considered being in battle",
+		battleStateCoolDown = new Setting<float>("战斗中生成冷却",
+            "在你未受到攻击达到X秒后,才会停止刷新AI,因为你仍然被认为处于战斗状态.",
 			20f, 20f);
 
-		maxRespawnsPMC = new Setting<int>("Maximum number of PMC respawns per raid",
-			"Once Donuts has spawned this many PMCs in a raid, it will skip all subsequent triggered PMC spawns. Default is 0 (unlimited)",
+		maxRespawnsPMC = new Setting<int>("每次战局中PMC的最大重生次数",
+            "一旦 Donuts 在一个战局中生成了这么多次PMC,它就会跳过所有后续触发的PMC生成.默认为0（无限制).",
 			0, 0);
 
-		maxRespawnsSCAV = new Setting<int>("Maximum number of SCAV respawns per raid",
-			"Once Donuts has spawned this many SCAVs in a raid, it will skip all subsequent triggered SCAV spawns. Default is 0 (unlimited)",
+		maxRespawnsSCAV = new Setting<int>("每次战局中SCAV的最大重生次数",
+            "一旦 Donuts 在一个战局中生成了这么多次PMC,它就会跳过所有后续触发的PMC生成.默认为0（无限制).",
 			0, 0);
 	}
 
 	private static void InitGlobalMinSpawnDistFromPlayer()
 	{
-		globalMinSpawnDistanceFromPlayerBool = new Setting<bool>("Use Global Min Distance From Player",
-			"If enabled, all spawns on all presets will use the global minimum spawn distance from player for each map defined below.",
+		globalMinSpawnDistanceFromPlayerBool = new Setting<bool>("使用全局最小玩家距离",
+            "如果启用,所有预设中的所有生成点都将使用下面定义的每个地图的全局最小玩家生成距离.",
 			true, true);
 		
-		const string tooltipText = "Distance (in meters) that bots should spawn away from the player (you).";
+		const string tooltipText = "机器人应该离玩家(你)的距离(以米为单位).";
 
-		globalMinSpawnDistanceFromPlayerFactory = new Setting<float>("Factory", tooltipText, 35f, 35f);
-		globalMinSpawnDistanceFromPlayerCustoms = new Setting<float>("Customs", tooltipText, 60f, 60f);
-		globalMinSpawnDistanceFromPlayerReserve = new Setting<float>("Reserve", tooltipText, 80f, 80f);
-		globalMinSpawnDistanceFromPlayerStreets = new Setting<float>("Streets", tooltipText, 80f, 80f);
-		globalMinSpawnDistanceFromPlayerWoods = new Setting<float>("Woods", tooltipText, 110f, 110f);
-		globalMinSpawnDistanceFromPlayerLaboratory = new Setting<float>("Laboratory", tooltipText, 40f, 40f);
-		globalMinSpawnDistanceFromPlayerShoreline = new Setting<float>("Shoreline", tooltipText, 100f, 100f);
-		globalMinSpawnDistanceFromPlayerGroundZero = new Setting<float>("Ground Zero", tooltipText, 50f, 50f);
-		globalMinSpawnDistanceFromPlayerInterchange = new Setting<float>("Interchange", tooltipText, 85f, 85f);
-		globalMinSpawnDistanceFromPlayerLighthouse = new Setting<float>("Lighthouse", tooltipText, 70f, 70f);
+		globalMinSpawnDistanceFromPlayerFactory = new Setting<float>("工厂", tooltipText, 35f, 35f);
+		globalMinSpawnDistanceFromPlayerCustoms = new Setting<float>("海关", tooltipText, 60f, 60f);
+		globalMinSpawnDistanceFromPlayerReserve = new Setting<float>("储备站", tooltipText, 80f, 80f);
+		globalMinSpawnDistanceFromPlayerStreets = new Setting<float>("街区", tooltipText, 80f, 80f);
+		globalMinSpawnDistanceFromPlayerWoods = new Setting<float>("森林", tooltipText, 110f, 110f);
+		globalMinSpawnDistanceFromPlayerLaboratory = new Setting<float>("实验室", tooltipText, 40f, 40f);
+		globalMinSpawnDistanceFromPlayerShoreline = new Setting<float>("海岸线", tooltipText, 100f, 100f);
+		globalMinSpawnDistanceFromPlayerGroundZero = new Setting<float>("中心区", tooltipText, 50f, 50f);
+		globalMinSpawnDistanceFromPlayerInterchange = new Setting<float>("立交桥", tooltipText, 85f, 85f);
+		globalMinSpawnDistanceFromPlayerLighthouse = new Setting<float>("灯塔", tooltipText, 70f, 70f);
 	}
 
 	private static void InitGlobalMinSpawnDistFromOtherBots()
 	{
-		globalMinSpawnDistanceFromOtherBotsBool = new Setting<bool>("Use Global Min Distance From Other Bots",
-			"If enabled, all spawns on all presets will use the global minimum spawn distance from player for each map defined below.",
+		globalMinSpawnDistanceFromOtherBotsBool = new Setting<bool>("使用与其他机器人之间的全局最小距离",
+            "如果启用,所有预设中的所有刷新点都将使用下面定义的每个地图的与玩家之间的全局最小刷新距离.",
 			true, true);
 
-		const string tooltipText = "Distance (in meters) that bots should spawn away from other alive bots.";
+		const string tooltipText = "机器人与其他存活机器人之间应保持的刷新距离(以米为单位).";
 
-		globalMinSpawnDistanceFromOtherBotsFactory = new Setting<float>("Factory", tooltipText, 15f, 15f);
-		globalMinSpawnDistanceFromOtherBotsCustoms = new Setting<float>("Customs", tooltipText, 40f, 50f);
-		globalMinSpawnDistanceFromOtherBotsReserve = new Setting<float>("Reserve", tooltipText, 50f, 50f);
-		globalMinSpawnDistanceFromOtherBotsStreets = new Setting<float>("Streets", tooltipText, 50f, 50f);
-		globalMinSpawnDistanceFromOtherBotsWoods = new Setting<float>("Woods", tooltipText, 80f, 80f);
-		globalMinSpawnDistanceFromOtherBotsLaboratory = new Setting<float>("Laboratory", tooltipText, 20f, 20f);
-		globalMinSpawnDistanceFromOtherBotsShoreline = new Setting<float>("Shoreline", tooltipText, 60f, 60f);
-		globalMinSpawnDistanceFromOtherBotsGroundZero = new Setting<float>("Ground Zero", tooltipText, 30f, 30f);
-		globalMinSpawnDistanceFromOtherBotsInterchange = new Setting<float>("Interchange", tooltipText, 65f, 65f);
-		globalMinSpawnDistanceFromOtherBotsLighthouse = new Setting<float>("Lighthouse", tooltipText, 60f, 60f);
+		globalMinSpawnDistanceFromOtherBotsFactory = new Setting<float>("工厂", tooltipText, 15f, 15f);
+		globalMinSpawnDistanceFromOtherBotsCustoms = new Setting<float>("海关", tooltipText, 40f, 50f);
+		globalMinSpawnDistanceFromOtherBotsReserve = new Setting<float>("储备站", tooltipText, 50f, 50f);
+		globalMinSpawnDistanceFromOtherBotsStreets = new Setting<float>("街区", tooltipText, 50f, 50f);
+		globalMinSpawnDistanceFromOtherBotsWoods = new Setting<float>("森林", tooltipText, 80f, 80f);
+		globalMinSpawnDistanceFromOtherBotsLaboratory = new Setting<float>("实验室", tooltipText, 20f, 20f);
+		globalMinSpawnDistanceFromOtherBotsShoreline = new Setting<float>("海岸线", tooltipText, 60f, 60f);
+		globalMinSpawnDistanceFromOtherBotsGroundZero = new Setting<float>("中心区", tooltipText, 30f, 30f);
+		globalMinSpawnDistanceFromOtherBotsInterchange = new Setting<float>("立交桥", tooltipText, 65f, 65f);
+		globalMinSpawnDistanceFromOtherBotsLighthouse = new Setting<float>("灯塔", tooltipText, 60f, 60f);
 	}
 
 	private static void InitAdvancedSettings()
 	{
-		maxRaidDelay = new Setting<float>("Raid Load Time Delay",
-			"Max time (in seconds) that Donuts force delays raid load so it has time to generate bot data for all starting points. This is to avoid potential bot spawn delays on raid start. This may delay Default is 60 seconds.",
+		maxRaidDelay = new Setting<float>("游戏准备时间延迟",
+            "Donuts强制延迟游戏准备的最长时间(以秒为单位),以便有时间为所有起始点生成机器人数据.这是为了避免在游戏开始时可能出现的机器人刷新延迟.默认值为 60 秒.",
 			60f, 60f, 0f, 120f);
 
-		replenishInterval = new Setting<float>("Bot Cache Replenish Interval",
-			"The time interval in seconds for Donuts to re-fill its bot data cache. Leave default unless you know what you're doing.",
+		replenishInterval = new Setting<float>("机器人缓存补充间隔",
+            "Donuts 重新填充其机器人数据缓存的时间间隔,以秒为单位.除非您清楚自己在做什么,否则请保留默认值.",
 			10f, 10f, 0f, 300f);
 
-		maxSpawnTriesPerBot = new Setting<int>("Max Spawn Tries Per Bot",
-			"It will stop trying to spawn one of the bots after this many attempts to find a good spawn point. Lower is better",
+		maxSpawnTriesPerBot = new Setting<int>("每个机器人的最大生成尝试次数",
+            "在尝试这么多次寻找合适的生成点后,它将停止尝试生成其中一个机器人.数值越低越好.",
 			1, 1, 0, 10);
 
-		despawnInterval = new Setting<float>("Despawn Bot Interval",
-			"This value is the number in seconds that Donuts should despawn bots. Default is 15 seconds. Note: decreasing this value may affect your performance.",
+		despawnInterval = new Setting<float>("移除机器人间隔",
+            "此数值表示 Donuts 应该在多少秒后移除机器人.默认值为 15 秒.注意:降低此数值可能会影响您的性能.",
 			15f, 15f, 5f, 600f);
 
-		groupWeightDistroLow = new Setting<string>("Group Chance Weights: Low",
-			"Weight Distribution for Group Chance 'Low'. Use relative weights for group sizes 1/2/3/4/5, respectively. Use this formula: group weight / total weight = % chance.",
+		groupWeightDistroLow = new Setting<string>("成群几率权重:低",
+            "'低'成群几率的权重分配.分别使用相对权重来设置群组大小 1/2/3/4/5 的权重.使用此公式:群组权重 / 总权重 = % 几率.",
 			_lowWeightsString, _lowWeightsString);
 
 		groupWeightDistroLow.OnSettingChanged +=
 			_ => GroupChanceWeights["Low"] = ParseGroupWeightDistro(groupWeightDistroLow.Value);
 
-		groupWeightDistroDefault = new Setting<string>("Group Chance Weights: Default",
-			"Weight Distribution for Group Chance 'Default'. Use relative weights for group sizes 1/2/3/4/5, respectively. Use this formula: group weight / total weight = % chance.",
+		groupWeightDistroDefault = new Setting<string>("成群几率权重：默认",
+            "'默认'成群几率的权重分配.分别使用相对权重来设置群组大小 1/2/3/4/5 的权重.使用此公式:群组权重 / 总权重 = % 几率.",
 			_defaultWeightsString, _defaultWeightsString);
 		
 		groupWeightDistroDefault.OnSettingChanged +=
 			_ => GroupChanceWeights["Default"] = ParseGroupWeightDistro(groupWeightDistroDefault.Value);
 
-		groupWeightDistroHigh = new Setting<string>("Group Chance Weights: High",
-			"Weight Distribution for Group Chance 'High'. Use relative weights for group sizes 1/2/3/4/5, respectively. Use this formula: group weight / total weight = % chance.",
+		groupWeightDistroHigh = new Setting<string>("成群几率权重:高",
+            "'高'成群几率的权重分配.分别使用相对权重来设置群组大小 1/2/3/4/5 的权重.使用此公式:群组权重 / 总权重 = % 几率.",
 			_highWeightsString, _highWeightsString);
 		
 		groupWeightDistroHigh.OnSettingChanged +=
@@ -400,76 +400,76 @@ internal static class DefaultPluginVars
 
 	private static void InitDebuggingSettings()
 	{
-		debugLogging = new Setting<bool>("Enable Debug Logging",
-			"When enabled, outputs debug logging to the BepInEx console and the LogOutput.log file", false, false);
+		debugLogging = new Setting<bool>("启用调试日志记录",
+            "启用后,会将调试日志输出到 BepInEx 控制台和 LogOutput.log 文件.", false, false);
 		
-		DebugGizmos = new Setting<bool>("Enable Debug Markers",
-			"When enabled, draws debug spheres on set spawn from json", false, false);
+		DebugGizmos = new Setting<bool>("启用调试标记",
+            "启用后,会在从 JSON 文件设置的生成点上绘制调试用的球体.", false, false);
 
-		gizmoRealSize = new Setting<bool>("Debug Sphere Real Size",
-			"When enabled, debug spheres will be the real size of the spawn radius", false, false);
+		gizmoRealSize = new Setting<bool>("调试球体的实际大小",
+            "启用后,调试球体的大小将与生成半径的实际大小一致.", false, false);
 	}
 
 	private static void InitSpawnPointMakerSettings()
 	{
-		spawnName = new Setting<string>("Name", "Name used to identify the spawn marker",
-			"Spawn Name Here", "Spawn Name Here");
+		spawnName = new Setting<string>("名称", "用于识别生成标记的名称",
+            "在此处输入生成名称", "在此处输入生成名称");
 
-		groupNum = new Setting<int>("Group Number", "Group Number used to identify the spawn marker",
+		groupNum = new Setting<int>("组号", "用于识别生成标记的组号",
 			1, 1, 1, 100);
 
-		wildSpawns = new Setting<string>("Wild Spawn Type", "Select an option.", "pmc", "pmc",
+		wildSpawns = new Setting<string>("野生生成类型", "选择一个选项.", "pmc", "pmc",
 			null, null, _wildSpawnTypes);
 
-		minSpawnDist = new Setting<float>("Min Spawn Distance", 
-			"Min Distance Bots will Spawn From Marker You Set.", 1f, 1f, 0f, 500f);
+		minSpawnDist = new Setting<float>("最小生成距离",
+            "AI从你设置的标记点生成的最小距离.", 1f, 1f, 0f, 500f);
 
-		maxSpawnDist = new Setting<float>("Max Spawn Distance",
-			"Max Distance Bots will Spawn From Marker You Set.", 20f, 20f, 1f, 1000f);
+		maxSpawnDist = new Setting<float>("最大生成距离",
+            "AI从你设置的标记点生成的最大距离.", 20f, 20f, 1f, 1000f);
 
-		botTriggerDistance = new Setting<float>("Bot Spawn Trigger Distance",
-			"Distance in which the player is away from the fight location point that it triggers bot spawn",
+		botTriggerDistance = new Setting<float>("触发AI生成的距离",
+            "玩家距离战斗地点达到触发AI生成的距离",
 			100f, 100f, 0.1f, 1000f);
 
-		botTimerTrigger = new Setting<float>("Bot Spawn Timer Trigger",
-			"In seconds before it spawns next wave while player in the fight zone area",
+		botTimerTrigger = new Setting<float>("AI生成计时器触发",
+            "当玩家在战斗区域内时,生成下一波AI的间隔时间(秒).",
 			180f, 180f, 0f, 10000f);
 
-		maxRandNumBots = new Setting<int>("Max Random Bots",
-			"Maximum number of bots of Wild Spawn Type that can spawn on this marker",
+		maxRandNumBots = new Setting<int>("最大随机AI数量",
+            "在此标记点可生成的'野生生成类型'AI的最大数量",
 			2, 2, 1, 5);
 
-		spawnChance = new Setting<int>("Spawn Chance for Marker",
-			"Chance bot will be spawn here after timer is reached", 50, 50, 0, 100);
+		spawnChance = new Setting<int>("标记点生成几率",
+            "计时器到达后,在此处生成AI的几率", 50, 50, 0, 100);
 
-		maxSpawnsBeforeCooldown = new Setting<int>("Max Spawns Before Cooldown",
-			"Number of successful spawns before this marker goes in cooldown", 5, 5, 1, 30);
+		maxSpawnsBeforeCooldown = new Setting<int>("冷却之前的最大生成次数",
+            "此标记点进入冷却前的成功生成次数", 5, 5, 1, 30);
 
-		ignoreTimerFirstSpawn = new Setting<bool>("Ignore Timer for First Spawn",
-			"When enabled for this point, it will still spawn even if timer is not ready for first spawn only",
+		ignoreTimerFirstSpawn = new Setting<bool>("忽略首次生成的计时器",
+            "启用后,即使计时器未准备好,此标记点仍然会生成,但仅限于首次生成.",
 			false, false);
 
-		minSpawnDistanceFromPlayer = new Setting<float>("Min Spawn Distance From Player",
-			"How far the random selected spawn near the spawn marker needs to be from player",
+		minSpawnDistanceFromPlayer = new Setting<float>("与玩家的最小生成距离",
+            "在生成标记点附近随机选择的生成位置与玩家的最小距离",
 			40f, 40f, 0f, 500f);
 
-		CreateSpawnMarkerKey = new Setting<KeyCode>("Create Spawn Marker Key",
-			"Press this key to create a spawn marker at your current location",
+		CreateSpawnMarkerKey = new Setting<KeyCode>("创建生成标记点按键",
+            "按下此键可以在您当前位置创建一个生成标记点.",
 			KeyCode.None, KeyCode.None);
 
-		DeleteSpawnMarkerKey = new Setting<KeyCode>("Delete Spawn Marker Key",
-			"Press this key to delete closest spawn marker within 5m of your player location",
+		DeleteSpawnMarkerKey = new Setting<KeyCode>("删除生成标记点按键",
+            "按下此键可以删除距离您当前位置5米范围内最近的生成标记点.",
 			KeyCode.None, KeyCode.None);
 	}
 
 	private static void InitSaveSettings()
 	{
-		saveNewFileOnly = new Setting<bool>("Save New Locations Only",
-			"If enabled saves the raid session changes to a new file. Disabled saves all locations you can see to a new file.",
+		saveNewFileOnly = new Setting<bool>("仅保存新位置",
+            "如果启用,则将战局会话的更改保存到一个新文件.如果禁用,则会将你能看到的所有位置保存到一个新文件.",
 			false, false);
 
-		WriteToFileKey = new Setting<KeyCode>( "Create Temp Json File",
-			"Press this key to write the json file with all entries so far",
+		WriteToFileKey = new Setting<KeyCode>("创建临时Json文件",
+            "按下此键可将包含目前所有条目的json文件写入.",
 			KeyCode.KeypadMinus, KeyCode.KeypadMinus);
 	}
 	

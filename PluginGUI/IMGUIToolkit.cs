@@ -220,9 +220,9 @@ public static class ImGUIToolkit
 		GUILayout.Label(labelContent, PluginGUIComponent.LabelStyle, GUILayout.Width(200));
 		GUILayout.Space(10);
 
-		GUIContent toggleContent = new(value ? "YES" : "NO", toolTip);
+		GUIContent toggleContent = new(value ? "是" : "否", toolTip);
 		bool newValue = GUILayout.Toggle(value, toggleContent, PluginGUIComponent.ToggleButtonStyle,
-			GUILayout.Width(150), GUILayout.Height(35));
+			GUILayout.Width(150), GUILayout.Height(40));
 
 		GUILayout.EndHorizontal();
 
@@ -291,7 +291,7 @@ public static class ImGUIToolkit
 
 		if (_keybindStates[keybindId])
 		{
-			GUIContent waitingContent = new("Press any key...", toolTip);
+			GUIContent waitingContent = new("请按任意键...", toolTip);
 			GUILayout.Button(waitingContent, PluginGUIComponent.ButtonStyle, GUILayout.Width(200));
 			_isSettingKeybind = true;
 		}
@@ -305,7 +305,7 @@ public static class ImGUIToolkit
 			}
 		}
 
-		if (GUILayout.Button("Clear", GUILayout.Width(90)))
+		if (GUILayout.Button("清除", GUILayout.Width(90)))
 		{
 			currentKey = KeyCode.None;
 		}
@@ -347,7 +347,7 @@ public static class ImGUIToolkit
 	{
 		if (setting == null)
 		{
-			DonutsPlugin.Logger.LogError($"{nameof(ImGUIToolkit)}::{nameof(FindSettingIndex)}: {nameof(setting)} is null.");
+			DonutsPlugin.Logger.LogError($"{nameof(ImGUIToolkit)}::{nameof(FindSettingIndex)}: {nameof(setting)} 为空.");
 			return -1;
 		}
 
@@ -356,7 +356,7 @@ public static class ImGUIToolkit
 			if (EqualityComparer<T>.Default.Equals(setting.Options[i], setting.Value))
 				return i;
 		}
-		DonutsPlugin.Logger.LogError($"{nameof(ImGUIToolkit)}::{nameof(FindSettingIndex)}: Value '{setting.Value}' not found in Options for setting '{setting.Name}'");
+		DonutsPlugin.Logger.LogError($"{nameof(ImGUIToolkit)}::{nameof(FindSettingIndex)}:在设置'{setting.Name}'的选项中未找到值'{setting.Value}'");
 		return -1;
 	}
 		

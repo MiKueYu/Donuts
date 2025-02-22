@@ -2,7 +2,7 @@
 
 internal class SpawnPointMakerSettingsPage : TabContainerPage
 {
-    public override string Name => "Spawn Point Maker";
+    public override string Name => "生成点创建器";
 
     public SpawnPointMakerSettingsPage() : base(PluginGUIComponent.SubTabButtonStyle, PluginGUIComponent.SubTabButtonActiveStyle)
     {

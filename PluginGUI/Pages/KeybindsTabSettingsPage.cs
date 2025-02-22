@@ -6,7 +6,7 @@ namespace Donuts.PluginGUI.Pages;
 
 internal class KeybindsTabSettingsPage : ISettingsPage
 {
-    public string Name => "Keybinds";
+    public string Name => "按键绑定";
 
     public void Draw()
     {
